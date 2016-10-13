@@ -1,0 +1,187 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="date" content="2015-05-28T08:00:35Z" />
+<meta name="cp:revision" content="166" />
+<meta name="Total-Time" content="2778" />
+<meta name="extended-properties:AppVersion" content="14.0000" />
+<meta name="meta:paragraph-count" content="120" />
+<meta name="meta:word-count" content="442" />
+<meta name="extended-properties:PresentationFormat" content="Экран (4:3)" />
+<meta name="dc:creator" content="User" />
+<meta name="extended-properties:Company" content="ОАО ИСС" />
+<meta name="Word-Count" content="442" />
+<meta name="dcterms:created" content="2011-03-25T07:37:11Z" />
+<meta name="Last-Modified" content="2015-05-28T08:00:35Z" />
+<meta name="dcterms:modified" content="2015-05-28T08:00:35Z" />
+<meta name="Last-Save-Date" content="2015-05-28T08:00:35Z" />
+<meta name="Template" content="Executive" />
+<meta name="Paragraph-Count" content="120" />
+<meta name="meta:save-date" content="2015-05-28T08:00:35Z" />
+<meta name="dc:title" content="Система мониторинга факторов космического пространства" />
+<meta name="Application-Name" content="Microsoft Office PowerPoint" />
+<meta name="extended-properties:TotalTime" content="2778" />
+<meta name="modified" content="2015-05-28T08:00:35Z" />
+<meta name="Content-Type" content="application/vnd.openxmlformats-officedocument.presentationml.presentation" />
+<meta name="Slide-Count" content="15" />
+<meta name="X-Parsed-By" content="org.apache.tika.parser.DefaultParser" />
+<meta name="X-Parsed-By" content="org.apache.tika.parser.microsoft.ooxml.OOXMLParser" />
+<meta name="creator" content="User" />
+<meta name="meta:author" content="User" />
+<meta name="meta:creation-date" content="2011-03-25T07:37:11Z" />
+<meta name="extended-properties:Application" content="Microsoft Office PowerPoint" />
+<meta name="meta:last-author" content="Goodwin" />
+<meta name="meta:slide-count" content="15" />
+<meta name="Creation-Date" content="2011-03-25T07:37:11Z" />
+<meta name="xmpTPg:NPages" content="15" />
+<meta name="Last-Author" content="Goodwin" />
+<meta name="Revision-Number" content="166" />
+<meta name="Application-Version" content="14.0000" />
+<meta name="extended-properties:Template" content="Executive" />
+<meta name="Author" content="User" />
+<meta name="publisher" content="ОАО ИСС" />
+<meta name="Presentation-Format" content="Экран (4:3)" />
+<meta name="dc:publisher" content="ОАО ИСС" />
+<title>Система мониторинга факторов космического пространства</title>
+</head>
+<body><div class="slide-content"><p>Предложения по проектированию и структурированию корпоративных данных</p>
+<p>Докладчик:</p>
+<p>Ведущий инженер-программист отд. 715</p>
+<p>Карпенко Д.С.</p>
+<div class="embedded" id="slide1_rId2" />
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Общая методология проектирования БД</p>
+<p>Нормализация (6 нормальных форм)</p>
+<p>Проектирование транзакций</p>
+<p>Концептуальные схемы и онтологии (ИИ, Data Mining, Semantic Web)</p>
+<p>Технология проектирования хранилищ данных (Data Vault)</p>
+<p>2</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>OLAP и OLTP технологии</p>
+<p>3</p>
+<table><tr>	<td>OLTP
+(On-Line Transaction Processing)
+</td>	<td>OLAP
+(On-Line Analytical Processing)
+</td></tr>
+<tr>	<td>Проектирование транзакций</td>	<td>Нет транзакций, данные неизменяемы</td></tr>
+<tr>	<td>Высокие требования нормализации</td>	<td>Низкие требования нормализации</td></tr>
+<tr>	<td>Изменяемость (версия)</td>	<td>Накопление (версия)</td></tr>
+<tr>	<td>Концептуальные схемы и онтологии</td>	<td /></tr>
+</table>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Общие принципы построения архитектуры данных</p>
+<p>4</p>
+<div class="embedded" id="slide4_rId2" />
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Проектирование с учетом 3-х звеньев</p>
+<p>5</p>
+<div class="embedded" id="slide5_rId2" />
+<p>Многообразие приложений требует единства авторизации.</p>
+<p>Возможности взаимодействия на уровне данных (в том числе безопасность данных).</p>
+<p>Изоляция конечных пользователей и клиентских приложений от проблем связанных с OLTP-OLAP дублированием данных.</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Сущности схемы данных Data Vault
+http://www.dwh-club.com/ru/dwh-bi-articles/data-vault-terminy-obekty-osnovy-arhitektury.html</p>
+<p>Сущность хаб (hub) –  базовый объект</p>
+<p>Сущность линк (link) – связь</p>
+<p>Сущность спутник (satellite) – данные приложений</p>
+<p>6</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Сущности схемы данных Data Vault
+http://www.dwh-club.com/ru/dwh-bi-articles/data-vault-terminy-obekty-osnovy-arhitektury.html</p>
+<p>Сущность хаб (hub) – базовый объект</p>
+<p>ID</p>
+<p>Версия</p>
+<p>Дата создания (транзакции)</p>
+<p>Идентификатор создателя</p>
+<p>Дополнительная идентификационная информация</p>
+<p>Формат имен таблиц: </p>
+<p>H_(имя таблицы)		- OLTP таблица</p>
+<p>H_(имя таблицы)_LOG	- OLAP таблица</p>
+<p>7</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Сущности схемы данных Data Vault
+http://www.dwh-club.com/ru/dwh-bi-articles/data-vault-terminy-obekty-osnovy-arhitektury.html</p>
+<p>Сущность линк (link) – связь</p>
+<p>ID</p>
+<p>Версия</p>
+<p>Дата создания (транзакции)</p>
+<p>Идентификатор создателя (автора транзакции)</p>
+<p>Идентификаторы связываемых хабов и/или линков</p>
+<p>Версии хабов/линков (только для OLAP)</p>
+<p>Дополнительная идентификационная информация</p>
+<p>Формат имен таблиц: </p>
+<p>L_(имя таблицы)		- OLTP таблица</p>
+<p>L_(имя таблицы)_LOG	- OLAP таблица</p>
+<p>8</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Сущности схемы данных Data Vault
+http://www.dwh-club.com/ru/dwh-bi-articles/data-vault-terminy-obekty-osnovy-arhitektury.html</p>
+<p>Сущность спутник (satellite)</p>
+<p>ID</p>
+<p>Версия (только для OLAP)</p>
+<p>Корпоративная информация связанная с соответствующим хабом/линком</p>
+<p>Формат имен таблиц: </p>
+<p>S_(имя таблицы)		- OLTP таблица</p>
+<p>S_(имя таблицы)_LOG	- OLAP таблица</p>
+<p>9</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Сущности схемы данных HRM</p>
+<p>10</p>
+<div class="embedded" id="slide10_rId2" />
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>11</p>
+<p>OLTP архитектура HRM</p>
+<div class="embedded" id="slide11_rId2" />
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>Преимущества и недостатки предлагаемой схемы</p>
+<p>12</p>
+<p>Преимущества</p>
+<p>Соответствие онтологической структуре.</p>
+<p>Расширяемость и масштабируемость.</p>
+<p>Единство подхода к организации структуры.</p>
+<p>Недостатки</p>
+<p>Возрастание количества таблиц – требования автоматизации обработки.</p>
+<p>Большинство преимуществ ощутимо только при использовании 3-х звеньев.</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>ORM (Object Relation Mapping, JPA)</p>
+<p>13</p>
+<div class="embedded" id="slide13_rId2" />
+<p>Для OLTP</p>
+<p>поле version аннотируется @Version (оптимистическая транзакция)</p>
+<p>Для OLAP объектов</p>
+<p>Поле version является частью составного первичного ключа.</p>
+<p>removed</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>ORM (Object Relation Mapping, JPA)</p>
+<p>14</p>
+<p>Ссылки</p>
+<p>http://i-novice.net/6-normalnyx-form-bd/</p>
+<p>http://bd-sql-xml.org.ua/index.php/proectirovanie-db-menu/37-oltp-i-olap-sistemy-data-mining</p>
+<p>https://ru.wikipedia.org/wiki/Онтология_(информатика)</p>
+<p>http://www.dwh-club.com/ru/dwh-bi-articles/data-vault-terminy-obekty-osnovy-arhitektury.html</p>
+<p>Дополнительная литература</p>
+<p>Е.М. Бениаминов. Некоторые проблемы широкого внедрения онтологий в IT и направления их решений//РГТУ</p>
+<p>А. А. Сидоров. Современные подходы к архитектуре хранилищ данных. Модель Data Vault//, отделение систем управления, компания ЛАНИТ</p>
+</div>
+<div class="slide-master-content" />
+<div class="slide-content"><p>15</p>
+<p>Спасибо за </p>
+<p>ВНИМАНИЕ!!!</p>
+<div class="embedded" id="slide15_rId2" />
+</div>
+<div class="slide-master-content" />
+<div class="embedded" id="/docProps/thumbnail.jpeg" /></body></html>

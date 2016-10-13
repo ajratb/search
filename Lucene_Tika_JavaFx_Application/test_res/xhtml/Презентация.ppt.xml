@@ -1,0 +1,166 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="cp:revision" content="138" />
+<meta name="date" content="2014-11-27T12:40:06Z" />
+<meta name="Company" content="ОАО ИСС" />
+<meta name="meta:word-count" content="417" />
+<meta name="dc:creator" content="User" />
+<meta name="extended-properties:Company" content="ОАО ИСС" />
+<meta name="Word-Count" content="417" />
+<meta name="dcterms:created" content="2011-03-25T07:37:11Z" />
+<meta name="dcterms:modified" content="2014-11-27T12:40:06Z" />
+<meta name="Last-Modified" content="2014-11-27T12:40:06Z" />
+<meta name="Last-Save-Date" content="2014-11-27T12:40:06Z" />
+<meta name="Template" content="Executive" />
+<meta name="meta:save-date" content="2014-11-27T12:40:06Z" />
+<meta name="dc:title" content="Система мониторинга факторов космического пространства" />
+<meta name="Application-Name" content="Microsoft Office PowerPoint" />
+<meta name="modified" content="2014-11-27T12:40:06Z" />
+<meta name="Edit-Time" content="1357939090000" />
+<meta name="Content-Type" content="application/vnd.ms-powerpoint" />
+<meta name="Slide-Count" content="9" />
+<meta name="X-Parsed-By" content="org.apache.tika.parser.DefaultParser" />
+<meta name="X-Parsed-By" content="org.apache.tika.parser.microsoft.OfficeParser" />
+<meta name="creator" content="User" />
+<meta name="meta:author" content="User" />
+<meta name="extended-properties:Application" content="Microsoft Office PowerPoint" />
+<meta name="meta:creation-date" content="2011-03-25T07:37:11Z" />
+<meta name="meta:last-author" content="Goodwin" />
+<meta name="meta:slide-count" content="9" />
+<meta name="Creation-Date" content="2011-03-25T07:37:11Z" />
+<meta name="xmpTPg:NPages" content="9" />
+<meta name="Last-Author" content="Goodwin" />
+<meta name="Revision-Number" content="138" />
+<meta name="extended-properties:Template" content="Executive" />
+<meta name="Author" content="User" />
+<title>Система мониторинга факторов космического пространства</title>
+</head>
+<body><div class="slideShow"><div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Преимущества, особенности и недостатки использования трехзвенной архитектуры в сравнении с архитектурой клиент-БД</p>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Основная терминология</p>
+<ul>	<li>Звено (tier)</li>
+</ul>
+<p />
+<p>физическое звено состоящее из физического сервера или группы серверов, выполняющих одинаковую функцию и сгруппированных только с целью масштабирования.</p>
+<p />
+<ul>	<li>Слой (layer)</li>
+</ul>
+<p />
+<p>сегмент системы, ограниченный собственным процессом или модулем. Множество слоев может содержаться в одном звене.</p>
+<p>*</p>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Звенья и слои</p>
+<ul>	<li>Звенья</li>
+</ul>
+<p />
+<p>Звено данных – сервера баз данных </p>
+<ul>	<li>Oracle, </li>
+	<li>Microsoft SQL-Server</li>
+	<li>MySQL, Postage, DB2 и др.</li>
+</ul>
+<p>Звено сервисов – сервера приложений</p>
+<ul>	<li>Apache (HTTPD, Tomcat);</li>
+	<li>Microsoft (IIS);</li>
+	<li>Oracle (Glassfish, Weblogic, OC4J);</li>
+	<li>RedHat (JBoss);</li>
+	<li>IBM (WebSphere).</li>
+</ul>
+<p>Клиентское звено</p>
+<p />
+<p><br />
+</p>
+<p>*</p>
+<ul>	<li>Cлои</li>
+</ul>
+<p>Слои звена данных </p>
+<ul>	<li>Слушатель (Listener).</li>
+	<li>Безопасность (шифрование, аутентификация и авторизация).</li>
+	<li>Слой управления данными.</li>
+	<li>Слой хранения данных.</li>
+</ul>
+<p>Слои звена сервисов</p>
+<ul>	<li>Объектная модель данных (ORM).</li>
+	<li>Бизнес транзакции.</li>
+	<li>Параметры пользовательской сессии.</li>
+	<li>Протоколы.</li>
+	<li>Безопасность.</li>
+</ul>
+<p />
+<p />
+<p><br />
+</p>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Варианты архитектуры</p>
+<p>*</p>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Трехзвенная архитектура – Вариант 1</p>
+<p>*</p>
+<p>Третье звено используется только как форматер потока и/или адаптер наборов данных БД. </p>
+<p />
+<p>Бизнес слой не содержит бизнес правил. </p>
+<p />
+<p>Достигается использование пула соединений.</p>
+<p />
+<p>Достигается изоляция БД</p>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Трехзвенная архитектура – Вариант 2</p>
+<p>*</p>
+<ul>	<li>Обладает всеми преимуществами варианта 2.</li>
+<p />
+	<li>Некоторые бизнес правила приложения переходят в бизнес слой, но то, что было в базе данных, так в ней большей частью и остается.</li>
+<p />
+	<li> При повторном использовании бизнес слоя бизнес правила должны повторяться и в клиентском приложении. </li>
+</ul>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Трехзвенная архитектура – Вариант 3</p>
+<p>*</p>
+<ul>	<li>Вся бизнес логика находится в одном месте и может быть легко проверена, отлажена и изменена.</li>
+<p />
+	<li>Для реализации бизнес-правил используется нормальный язык разработки - более гибкий и лучше подходящий для описания бизнес правил, чем SQL и хранимые процедуры.</li>
+<p />
+	<li>База данных становится слоем хранения и может заниматься эффективным получением и хранением данных без ограничений относящихся к слою бизнес логики или представления.</li>
+</ul>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Другие преимущества</p>
+<p>*</p>
+<p />
+<p />
+<ul>	<li>Стек технологий – стандарты, бизнес-транзакции при работе с несколькими БД, стандарты W3C для взаимодействия с клиентом.</li>
+<p />
+	<li>Снижение связности клиентской и серверной частей – возможность практически полной реорганизации серверной инфраструктуры без изменений для пользователей.</li>
+<p />
+	<li>Повторное использование готовой инфраструктуры для развертывания новых как покупных так и  вновь разрабатываемых корпоративных приложений. </li>
+</ul>
+</div>
+</div>
+<div class="slide"><div class="slide-master-content" />
+<div class="slide-content"><p>Недостатки трехзвенной архитектуры</p>
+<p>*</p>
+<p />
+<p />
+<ul>	<li>Необходимость оплачивать поддержку для серверов приложений.</li>
+<p />
+	<li>Необходимость наличия специалистов высокого уровня для разработки, развертывания и эксплуатации каждого слоя. </li>
+<p />
+	<li>Сложности контроля (покупка и разработка специализированного ПО, использование дополнительных ресурсов). </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide-notes" />
+</body></html>

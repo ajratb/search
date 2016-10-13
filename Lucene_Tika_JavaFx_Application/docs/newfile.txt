@@ -1,3 +1,0 @@
-﻿some text
-некоторый текст для теста и тестов
-something needs to be tested

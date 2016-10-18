@@ -1,8 +1,7 @@
 /*
- * ROSCOSMOS CORP. PROPERTY. 
- * Don't use without permission
+ * 
  */
-package ru.npopm.dep715.searchdocs.utils;
+package searchdocs.utils;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -12,7 +11,6 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import org.slf4j.LoggerFactory;
-import ru.npopm.dep715.searchdocs.lucene._IndexFiles_;
 
 /**
  *

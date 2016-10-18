@@ -1,4 +1,6 @@
 /*
+ * Some code in this module is under this licence:
+ *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -14,9 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.npopm.dep715.searchdocs.lucene;
+package searchdocs.lucene;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,7 +34,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Date;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-
 
 import org.apache.lucene.document.LongPoint;
 import org.apache.lucene.document.Document;
@@ -52,54 +55,32 @@ import ru.npopm.dep715.searchdocs.gui.MainController;
  * This is a command-line application demonstrating simple Lucene indexing. Run
  * it with no command-line arguments for usage information.
  */
-public class _IndexFiles_ {
+public class IndexManager {
 
-    private static long operationTime;
-
-    public static long getOperationTime() {
-        return operationTime;
-    }
+//    private static long operationTime;
+//    public static long getOperationTime() {
+//        return operationTime;
+//    }    
+    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(IndexManager.class);
     
-    private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(_IndexFiles_.class);
-    
-    public static boolean prepareIndexDocs(String indexDir, String docsDir) {
-
-        boolean create = true;
-
-        final Path indexPath = Paths.get(indexDir);
-        //1. Если папка index не существует, то создаём
-        if (Files.exists(indexPath)) {
-            create = false;
-            System.out.println("create=false");
-        } else {
-            try {
-                Files.createDirectory(indexPath);
-            } catch (IOException ex) {
-                LOG.error(ex.toString(), ex);
-            }
-        }
-
-        final Path docDir = Paths.get(docsDir);
-        //
-        //For breaking method if docDir is not available
-        //boolean next = true;
-        if (!Files.isReadable(docDir)) {
-            System.out.println("Document directory '" + docDir.toAbsolutePath()
-                    + "' does not exist or is not readable, please check the path");
-            return false;
-        }
-
-        _IndexFiles_.startIndexDocs(indexDir, create, docDir);
-        return true;
+    public IndexManager(String index){
+        
     }
 
-    public static void startIndexDocs(String indexPath, boolean create, Path docDir) {
-        Date start = new Date();
+    public boolean startIndexDocs(String indexPath, boolean create, String docDir) {
+        
+        Path docsPath=Paths.get(docDir);
+
         try {
+            if (!Files.isReadable(docsPath)) {
+                System.out.println("Document directory '" + docsPath.toAbsolutePath()
+                        + "' does not exist or is not readable, please check the path");
+                return false;
+            }
             System.out.println("Indexing to directory '" + indexPath + "'...");
 
             Directory dir = FSDirectory.open(Paths.get(indexPath));
-            
+
             Analyzer analyzer = new StandardAnalyzer();
             IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
 
@@ -120,7 +101,7 @@ public class _IndexFiles_ {
             //
             // iwc.setRAMBufferSizeMB(256.0);
             IndexWriter writer = new IndexWriter(dir, iwc);
-            indexDocs(writer, docDir);
+            indexDocs(writer, docsPath);
 
             // NOTE: if you want to maximize search performance,
             // you can optionally call forceMerge here.  This can be
@@ -130,15 +111,11 @@ public class _IndexFiles_ {
             //
             // writer.forceMerge(1);
             writer.close();
-
-            Date end = new Date();
-            operationTime = end.getTime() - start.getTime();
-            System.out.println(end.getTime() - start.getTime() + " total milliseconds");
-
         } catch (IOException e) {
             System.out.println(" caught a " + e.getClass()
                     + "\n with message: " + e.getMessage());
         }
+        return true;
     }
 
     /**
@@ -159,13 +136,13 @@ public class _IndexFiles_ {
      * files to index
      * @throws IOException If there is a low-level I/O error
      */
-    private  static void indexDocs(final IndexWriter writer, Path path) throws IOException {
+    private void indexDocs(final IndexWriter writer, Path path) throws IOException {
         if (Files.isDirectory(path)) {
             Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     try {
-                        indexDoc(writer, file, attrs.lastModifiedTime().toMillis());
+                        indexDoc(writer, file.toFile(), attrs.lastModifiedTime().toMillis());
                     } catch (IOException ignore) {
                         // don't index files that can't be read.
                     }
@@ -173,15 +150,15 @@ public class _IndexFiles_ {
                 }
             });
         } else {
-            indexDoc(writer, path, Files.getLastModifiedTime(path).toMillis());
+            indexDoc(writer, path.toFile(), Files.getLastModifiedTime(path).toMillis());
         }
     }
 
     /**
      * Indexes a single document
      */
-    static void indexDoc(IndexWriter writer, Path file, long lastModified) throws IOException {
-        try (InputStream stream = Files.newInputStream(file)) {
+    static void indexDoc(IndexWriter writer, File file, long lastModified) throws IOException {
+        try (InputStream stream = new FileInputStream(file)) {
             // make a new, empty document
             Document doc = new Document();
 

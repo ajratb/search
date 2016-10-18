@@ -1,8 +1,7 @@
 /*
- * ROSCOSMOS CORP. PROPERTY. 
- * Don't use without permission
+ *
  */
-package ru.npopm.dep715.searchdocs.utils;
+package searchdocs.utils;
 
 import java.io.BufferedInputStream;
 import java.io.File;

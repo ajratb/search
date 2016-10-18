@@ -1,8 +1,8 @@
 <#if licenseFirst??>
 ${licenseFirst}
 </#if>
-${licensePrefix}ROSCOSMOS CORP. PROPERTY. 
-${licensePrefix}Don't use without permission
+${licensePrefix} 
+${licensePrefix}
 <#if licenseLast??>
 ${licenseLast}
 </#if>

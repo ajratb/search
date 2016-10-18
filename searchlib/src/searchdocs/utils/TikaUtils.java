@@ -1,8 +1,7 @@
 /*
- * ROSCOSMOS CORP. PROPERTY. 
- * Don't use without permission
+ * 
  */
-package ru.npopm.dep715.searchdocs.tika;
+package searchdocs.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -29,7 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
-import ru.npopm.dep715.searchdocs.utils.IOFileUtils;
+import searchdocs.utils.IOFileUtils;
 
 /**
  * Класс, позволяющий получать структурированный файл(xhtml) из переданного(pdf,
@@ -37,9 +36,9 @@ import ru.npopm.dep715.searchdocs.utils.IOFileUtils;
  *
  * @author ayrat
  */
-public class DocToXML {
+public class TikaUtils {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DocToXML.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TikaUtils.class);
 
     //переделать название?
     public static String start(File file) throws IOException, SAXException, TikaException {

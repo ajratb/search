@@ -1,4 +1,6 @@
 /*
+ * Some code in this module is under this licence:
+ *
  * Licensed to the Apache Software Foundation (ASF) under one or more
  * contributor license agreements.  See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
@@ -14,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.npopm.dep715.searchdocs.lucene;
+package searchdocs.lucene;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -36,16 +38,16 @@ import org.apache.lucene.store.FSDirectory;
 
 /**
  * Модуль поиска, работающий с библиотеками Lucene
- *
- * Создан на основе org.apache.lucene.demo.SearchFiles
- *
- * ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ (доступ через методы-геттеры): resultCount - количество
- * найденных файлов operationTime - время осуществления поиска results - список
- * найденных документов
+
+ Создан на основе org.apache.lucene.demo.SearchManager
+
+ ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ (доступ через методы-геттеры): resultCount - количество
+ найденных файлов operationTime - время осуществления поиска results - список
+ найденных документов
  *
  * @author ayrat
  */
-public class SearchFiles {
+public class SearchManager {
 
 //    private static int resultCount;
     private static long operationTime;
@@ -63,7 +65,7 @@ public class SearchFiles {
         return operationTime;
     }
 
-    private SearchFiles() {
+    private SearchManager() {
 
     }
 
